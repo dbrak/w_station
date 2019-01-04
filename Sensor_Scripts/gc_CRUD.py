@@ -1,6 +1,7 @@
 import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import firestore
+import time
 
 # Use a service account
 cred = credentials.Certificate('w-station-test-3b5715b0fc95.json')
@@ -8,18 +9,22 @@ firebase_admin.initialize_app(cred)
 
 db = firestore.client()
 
-def gcWrite(sensor,data,timestamp):
-    x = timestamp
+def gcWrite(location,temp,humid,timestamp):
+    x = str(timestamp)
 
     timestamp = {
-        str(timestamp) : int(data)
+        str('Temperature') : int(temp),
+
+        str('Humidity') : int(humid),
+
+        str('Time') : int(time.time())
     }
-    db.collection(str(sensor)). document(x).set(timestamp)
+    db.collection(str(location)). document(x).set(timestamp)
 
 
 
-def gcRead(sensor, timestamp):
-    doc_ref = db.collection(sensor).document(timestamp)
+def gcRead(location, timestamp):
+    doc_ref = db.collection(str(location)).document(str(timestamp))
 
     try:
         doc = doc_ref.get()
@@ -27,4 +32,4 @@ def gcRead(sensor, timestamp):
     except google.cloud.exceptions.NotFound:
         print(u'No such document!')
 
-gcWrite('temp', '6:00')
+
