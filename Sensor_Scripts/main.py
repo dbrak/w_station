@@ -1,6 +1,6 @@
 import time
 from gc_CRUD import gcWrite
-import socket
+#import socket
 
 import pigpio
 import DHT22
@@ -27,4 +27,3 @@ while True:
 
         gcWrite("Joe's Office", t, h, i)
         print(tm,ts,"|",i,"|",time.strftime("%H:%M:%S"))
-
