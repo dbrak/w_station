@@ -1,17 +1,20 @@
 import time
 from gc_CRUD import gcWrite
+import socket
 
 import pigpio
 import DHT22
 
 pi = pigpio.pi()
 s = DHT22.sensor(pi,4)
+hostname = str(socket.gethostname())
 
 
 while True:
 
-    tm = int(time.strftime("%M"))
-    ts = int(time.strftime("%S"))
+    t = time.gmtime()
+    ts = int(time.strftime('%S',t))
+    tm = int(time.strftime('%M',t))
 
     if (tm % 5 == 0) and (ts == 0):
 
@@ -22,6 +25,6 @@ while True:
 
         i = time.strftime("%y:%m:%d %H:%M")
 
-        gcWrite('Joe`s office ', t, h, i)
+        gcWrite(hostname, t, h, i)
         print(tm,ts,"|",i,"|",time.strftime("%H:%M:%S"))
 
