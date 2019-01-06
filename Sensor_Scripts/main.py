@@ -14,7 +14,7 @@ while True:
 
         s.trigger()
         time.sleep(0.05)
-        t = s.temeperature()
+        t = s.temperature()
         h = s.humidity()
         s.cancel()
 
