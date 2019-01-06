@@ -7,7 +7,7 @@ import DHT22
 
 pi = pigpio.pi()
 s = DHT22.sensor(pi,4)
-hostname = str(socket.gethostname())
+#hostname = str(socket.gethostname())
 
 
 while True:
@@ -25,6 +25,6 @@ while True:
 
         i = time.strftime("%y:%m:%d %H:%M")
 
-        gcWrite(hostname, t, h, i)
+        gcWrite("Joe's Office", t, h, i)
         print(tm,ts,"|",i,"|",time.strftime("%H:%M:%S"))
 
