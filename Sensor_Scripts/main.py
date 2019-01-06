@@ -23,5 +23,5 @@ while True:
         i = time.strftime("%y:%m:%d %H:%M")
 
         gcWrite('Joe`s office ', t, h, i)
-        print("Written to firebase")
+        print(tm,ts,i)
 
