@@ -23,5 +23,5 @@ while True:
         i = time.strftime("%y:%m:%d %H:%M")
 
         gcWrite('Joe`s office ', t, h, i)
-        print(tm,ts,i)
+        print(tm,ts,"|",i,"|",time.strftime("%H:%M:%S"))
 
