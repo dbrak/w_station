@@ -1,8 +1,11 @@
 import time
 from gc_CRUD import gcWrite
-
+import json
 import pigpio
 import DHT22
+
+with open('config.json','r') as f:
+    config = json.load(f)
 
 pi = pigpio.pi()
 s = DHT22.sensor(pi, 4)
@@ -21,5 +24,5 @@ while True:
 
         i = time.strftime("%y:%m:%d %H:%M")
 
-        gcWrite('Joe`s Office', t, h, i)
+        gcWrite(config['location'], t, h, i)
         print(tm, ts, "|", i, "|", time.strftime("%H:%M:%S"))
