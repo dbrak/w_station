@@ -10,7 +10,7 @@ s = DHT22.sensor(pi,4)
 
 while True:
 
-    if int(time.strftime("%M")) % 5 == 0 and int(time.strftime("%S")) ==0 :
+    if int(time.strftime("%M")) % 5 == 0 and int(time.strftime("%S")) == 0:
 
         s.trigger()
         time.sleep(0.05)
