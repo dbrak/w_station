@@ -17,9 +17,5 @@ A directory of notes about setting up the Pycharm IDE.
 The class of python code for controlling the DTH22 sensor is from the\
 Pigpio website and can me found at [this link][http://abyz.me.uk/rpi/pigpio/examples.html].
 
-# VNC
-A good guide to setting up VNC
-https://www.raspberrypi.org/documentation/remote-access/vnc/
-
 
 [todo] Need to add a section about firebase credentials
