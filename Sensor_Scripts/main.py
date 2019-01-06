@@ -11,9 +11,13 @@ s = DHT22.sensor(pi,4)
 while True:
 
     if int(time.strftime("%M")) % 5 == 0:
+
         s.trigger()
+        time.sleep(0.05)
         t = s.temeperature()
         h = s.humidity()
+        s.cancel()
+
         i = time.strftime("%y:%m:%d %H:%M")
 
         gcWrite('Joe`s office ', t, h, i)
