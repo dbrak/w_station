@@ -23,7 +23,7 @@ def gcWrite(location,temp,humid,timestamp):
         db.collection(str(location)). document(x).set(timestamp)
 
     except:
-        print("Firebase write failed at: " + timestamp)
+        print("Firebase write failed at: " + str(timestamp))
 
 
 def gcRead(location, timestamp):
