@@ -4,7 +4,7 @@ from firebase_admin import firestore
 import time
 
 # Use a service account
-cred = credentials.Certificate('credential.json')
+cred = credentials.Certificate('credentials.json')
 firebase_admin.initialize_app(cred)
 
 db = firestore.client()
