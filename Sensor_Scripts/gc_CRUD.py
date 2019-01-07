@@ -4,7 +4,7 @@ from firebase_admin import firestore
 import time
 
 # Use a service account
-cred = credentials.Certificate('credentials.json')
+cred = credentials.Certificate('credential.json')
 firebase_admin.initialize_app(cred)
 
 db = firestore.client()
@@ -12,15 +12,18 @@ db = firestore.client()
 def gcWrite(location,temp,humid,timestamp):
     x = str(timestamp)
 
-    timestamp = {
-        str('Temperature') : int(temp),
+    try:
+        timestamp = {
+            str('Temperature') : int(temp),
 
-        str('Humidity') : int(humid),
+            str('Humidity') : int(humid),
 
-        str('Time') : int(time.time())
-    }
-    db.collection(str(location)). document(x).set(timestamp)
+            str('Time') : int(time.time())
+        }
+        db.collection(str(location)). document(x).set(timestamp)
 
+    except:
+        print("Firebase write failed at: " + timestamp)
 
 
 def gcRead(location, timestamp):
