@@ -27,5 +27,5 @@ while True:
         gcWrite(config['location'], t, h, i)
         print(tm, ts, "|", i, "|", time.strftime("%H:%M:%S"))
 
-        time.sleep(250)
+        time.sleep(294)
 
