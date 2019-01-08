@@ -29,4 +29,4 @@ def main():
 
 
 while True:
-    schedule.every(5).minutes.hour.do(main())
+    schedule.every(5).minutes.hours.do(main())
