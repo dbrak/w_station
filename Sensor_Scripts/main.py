@@ -1,16 +1,16 @@
 import time
 from gc_CRUD import gcWrite
+from schedule import every
 import json
 import pigpio
 import DHT22
 
-with open('config.json','r') as f:
-    config = json.load(f)
+def main():
+    with open('config.json','r') as f:
+        config = json.load(f)
 
-pi = pigpio.pi()
-s = DHT22.sensor(pi, 4)
-
-while True:
+    pi = pigpio.pi()
+    s = DHT22.sensor(pi, 4)
 
     t = time.gmtime()
     ts = int(time.strftime('%S', t))
@@ -26,3 +26,6 @@ while True:
 
         gcWrite(config['location'], t, h, i)
         print(tm, ts, "|", i, "|", time.strftime("%H:%M:%S"))
+
+while True:
+    every(5).minutes.do(main())
