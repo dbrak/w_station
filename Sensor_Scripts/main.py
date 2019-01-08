@@ -27,6 +27,7 @@ def main():
     gcWrite(config['location'], t, h, i)
     print(tm, ts, "|", i, "|", time.strftime("%H:%M:%S"))
 
+t = ["5","10","15","20","25","30","35","40","45","50","55","60"]
 
 while True:
-    schedule.every(5).minutes.hours.do(main())
+    schedule.every().mhours.at(t).do(main())
