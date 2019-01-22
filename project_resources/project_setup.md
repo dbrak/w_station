@@ -11,7 +11,8 @@
     - firebase-admin
     - grpcio
     - pigpio
-    - 
+    - statistics
+    - bokeh
     
 6. In Preferences > Version Control > Ignored Files, add *.xml, *.json and *.iml files. That should clear all of your untracked changes in the files.
 

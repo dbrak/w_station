@@ -2,9 +2,13 @@ import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import firestore
 import time
+import json
+
+with open('Cred','r') as f:
+    config = json.load(f)
 
 # Use a service account
-cred = credentials.Certificate('credentials.json')
+cred = credentials.Certificate(config['Firebase'])
 firebase_admin.initialize_app(cred)
 
 db = firestore.client()

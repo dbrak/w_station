@@ -1,11 +1,10 @@
 import time
 from gc_CRUD import gcWrite
-import schedule
 import json
 import pigpio
 import DHT22
 
-with open('config.json','r') as f:
+with open('Cred','r') as f:
     config = json.load(f)
 
 pi = pigpio.pi()
@@ -24,7 +23,7 @@ while True:
 
         i = time.strftime("%y:%m:%d %H:%M")
 
-        gcWrite(config['location'], t, h, i)
+        gcWrite(config['Location'], t, h, i)
         print(tm, ts, "|", i, "|", time.strftime("%H:%M:%S"))
 
         time.sleep(294)
