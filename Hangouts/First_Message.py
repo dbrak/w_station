@@ -6,7 +6,7 @@ with open('Cred','r') as f:
     con = json.load(f)
 
 def main():
-    url = con['Chat']
+    url = con['Chat1']
     bot_message = {
         'text': 'Hello World'}
 
