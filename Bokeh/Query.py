@@ -24,10 +24,11 @@ def query(location, type, operation, value, field):
     for i in dictionary.keys():
 
         k = dictionary[i]
-        t = k[str(field)]
-        data.update({i : t})
+        f = int(k[str(field)])
+        t = k['Time']
+        data.update({i: [f,t]})
     return data
 
-#temp = query('Joe\'s Study', 'Temperature', '>', 20, 'Temperature')
+#temp = query('Joe\'s Study', 'Humidity', '>', 47, 'Temperature')
 
 #print (temp)
